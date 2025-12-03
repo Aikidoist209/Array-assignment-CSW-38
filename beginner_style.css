@@ -122,3 +122,28 @@ button:hover {
     color: #FFC107; /* Gold/Amber default color */
     transition: all 0.3s ease;
 }
+
+@media screen and (max-width: 750px) {
+    .example-nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    button {
+        width: 100%;
+        font-size: 1em;
+    }
+}   
+
+@mediq screen and (max-width: 350px) {
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
