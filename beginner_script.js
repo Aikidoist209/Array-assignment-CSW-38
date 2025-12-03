@@ -59,6 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // This variable will track which message we are currently showing.
     let currentMessageIndex = 0;
 
+    // This variable will track which set of nav titles we are currently showing.
+    let currentNavIndex = 0;
+
 
     // --- 3. EVENT LISTENERS (Handling Clicks) ---
 
@@ -80,17 +83,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // Use a loop to iterate over the nav link elements (navLinks array).
         // The loop runs three times: once for nav-link-0, nav-link-1, and nav-link-2.
         for (let i = 0; i < navLinks.length; i++) {
+            
+            const arrayIndex = currentNavIndex + i;
+            
             // Check if the array contains the required title before assigning (safety check)
-            if (navTitlesArray[i]) {
+            if (navTitlesArray[arrayIndex]) {
                 // Set the text content of the HTML link element to the value in the array.
-                // We are mapping navLinks[0] to navTitlesArray[0], [1] to [1], etc.
-                navLinks[i].textContent = navTitlesArray[i];
+                navLinks[i].textContent = navTitlesArray[arrayIndex];
             }
         }
         
-        // As a bonus, change the main subtitle to indicate the change.
+        
+        currentNavIndex = (currentNavIndex + 1) % (navTitlesArray.length - navLinks.length + 1);
+        
+        
         subtitleElement.textContent = "Navigation links successfully updated by JavaScript!";
-        subtitleElement.style.color = '#34D399'; // Green accent
+        subtitleElement.style.color = '#34D399'; 
     }
 
     /**
